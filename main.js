@@ -16,3 +16,20 @@ const computerPlay = () => {
       return result;
   }
 };
+
+const playerSelection = () => {
+  let playerChoice = prompt(
+    "Please enter your choice between rock, paper, scissors"
+  );
+  playerChoice = playerChoice.toLowerCase();
+
+  if (
+    playerChoice === "rock" ||
+    playerChoice === "paper" ||
+    playerChoice === "scissors"
+  ) {
+    return playerChoice;
+  } else {
+    return "Wrong input, you must select either rock, paper or scissors.";
+  }
+};
