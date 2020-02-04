@@ -83,3 +83,48 @@ const playRound = (playerChoice, computerChoice) => {
       }
   }
 };
+
+const game = () => {
+  let result = false;
+  let playerWin = 0;
+  let computerWin = 0;
+  let tie = 0;
+
+  for (let i = 1; i <= 5; i++) {
+    let roundMessage = `Round ${i}`;
+    let computer = computerPlay();
+    let player = playerSelection();
+    console.log(roundMessage);
+
+    result = playRound(player, computer);
+
+    if (result == "tie") {
+      tie++;
+    } else if (result == true) {
+      playerWin++;
+    } else {
+      computerWin++;
+    }
+  }
+
+  console.log("End of the best of five match! results: ");
+  console.log(`Player: ${playerWin} points`);
+  console.log(`Computer: ${computerWin} points`);
+  console.log(`Ties: ${tie}`);
+
+  if (playerWin > computerWin) {
+    console.log(
+      `Player Wins! By a difference in points of: ${playerWin -
+        computerWin} points.`
+    );
+  } else if (playerWin < computerWin) {
+    console.log(
+      `Computer Wins! By a difference in points of: ${computerWin -
+        playerWin} points.`
+    );
+  } else {
+    console.log(
+      `Best of five ended in a tie, Player: ${playerWin}, Computer: ${computerWin}`
+    );
+  }
+};
